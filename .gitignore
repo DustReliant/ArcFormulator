@@ -1,0 +1,4 @@
+out/*
+.vs
+.git
+CMakePresets.json
