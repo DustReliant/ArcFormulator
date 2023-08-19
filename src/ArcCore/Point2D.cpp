@@ -1,8 +1,14 @@
 #include "Point2D.h"
 
-Point2D::Point2D()
+Point2D::Point2D(double x, double y) : m_x(x), m_y(y) 
 {
 
+}
+
+Point2D::Point2D(const Point2D &point2d) 
+{
+    m_x = point2d.m_x;
+    m_x = point2d.m_y;
 }
 
 Point2D::~Point2D()
@@ -10,8 +16,7 @@ Point2D::~Point2D()
 
 }
 
-void Point2D::setX(double x) 
-{
+void Point2D::setX(double x) {
     m_x = x;
 }
 
