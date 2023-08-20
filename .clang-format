@@ -1,5 +1,5 @@
 # 基于哪种已有的代码风格
-BasedOnStyle: Google
+BasedOnStyle: LLVM
 # 访问修饰符（public, private等）的缩进
 AccessModifierOffset: -4
 # 开括号后元素如何对齐
@@ -60,7 +60,7 @@ ColumnLimit: 0
 # 是否压缩命名空间
 CompactNamespaces: false
 # 连续缩进宽度
-ContinuationIndentWidth: 8
+ContinuationIndentWidth: 4
 # case标签是否缩进
 IndentCaseLabels: true
 # 预处理指令的缩进设置

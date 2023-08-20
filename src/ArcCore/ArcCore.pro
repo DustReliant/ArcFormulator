@@ -14,8 +14,7 @@ SOURCES += Point2D.cpp \
 
 
 
-
-
+# 动态库生成目录
 DESTDIR = $$PWD/../../out/libs
 TARGET = ArcCore
 

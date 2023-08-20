@@ -2,6 +2,6 @@
 TEMPLATE = subdirs
 
 SUBDIRS = src/ArcCore \
-		  src/ui
+          src/ui
 
 CONFIG += ordered

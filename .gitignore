@@ -1,6 +1,7 @@
 out/*
 .vs
 .git
+.svn
 libs/*
 CMakePresets.json
-*.user
+ArcFormulator.pro.user
