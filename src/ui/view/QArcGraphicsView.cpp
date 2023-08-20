@@ -1,4 +1,4 @@
-#include "QArcGraphicsView.h"
+﻿#include "QArcGraphicsView.h"
 
 QArcGraphicsView::QArcGraphicsView(QWidget *parent)
 	: QGraphicsView(parent)

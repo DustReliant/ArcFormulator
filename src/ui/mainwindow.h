@@ -8,11 +8,21 @@
 #include <QGraphicsScene>
 #include <QLabel>
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+#include "SARibbonMainWindow.h"
+class SARibbonCategory;
+class SARibbonContextCategory;
+class SARibbonCustomizeWidget;
+class SARibbonActionsManager;
+class SARibbonQuickAccessBar;
+class SARibbonButtonGroupWidget;
+class QTextEdit;
 
-class MainWindow : public QMainWindow
+
+//QT_BEGIN_NAMESPACE
+//namespace Ui { class MainWindow; }
+//QT_END_NAMESPACE
+
+class MainWindow : public SARibbonMainWindow
 {
     Q_OBJECT
 
@@ -30,7 +40,8 @@ private:
     QLabel* statusLabel = nullptr;
 
 private:
-    Ui::MainWindow *ui;
+    //Ui::MainWindow *ui;
+    SARibbonCustomizeWidget* m_customizeWidget = nullptr;
 };
 
 #endif // MAINWINDOW_H

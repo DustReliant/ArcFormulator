@@ -13,6 +13,9 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
+link_directories(${CMAKE_SOURCE_DIR}/3dparty/SARibbon/lib)
+
+
 # 获取view目录下的所有.cpp和.h文件
 file(GLOB_RECURSE VIEW_CPP_FILES "view/*.cpp")
 file(GLOB_RECURSE VIEW_HEADER_FILES "view/*.h")
@@ -26,12 +29,12 @@ set(ALL_CPP_FILES ${VIEW_CPP_FILES} ${RIBBON_CPP_FILES})
 set(ALL_HEADER_FILES ${VIEW_HEADER_FILES} ${RIBBON_HEADER_FILES})
 
 # 创建一个可执行文件
-message("${CMAKE_PROJECT_NAME}0000000000000000000000000000")
+message("${CMAKE_PROJECT_NAME}")
 add_executable(${PROJECT_NAME} WIN32
     "main.cpp"
     "MainWindow.cpp"
     "MainWindow.h"
-    "MainWindow.ui"
+    #"MainWindow.ui"
     ${ALL_CPP_FILES} 
     ${ALL_HEADER_FILES}
 )
@@ -49,6 +52,18 @@ target_link_libraries(${PROJECT_NAME}
 # 根据需要，可以设置C++标准
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
+endif()
+
+
+
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    target_link_libraries(${PROJECT_NAME} PRIVATE
+        SARibbonBard
+    )
+else()
+    target_link_libraries(${PROJECT_NAME} PRIVATE 
+        SARibbonBar
+    )
 endif()
 
 # TODO: 如有需要，请添加测试并安装目标。

@@ -21,6 +21,8 @@ option(ENABLE_TESTS "Enable test compilation and execution" OFF)
 # 全局编译标志
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
+include_directories(${CMAKE_SOURCE_DIR}/3dparty/SARibbon/include)
+
 # 添加子目录
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/ArcCore)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/ui)
