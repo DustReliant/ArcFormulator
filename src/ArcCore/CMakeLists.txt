@@ -8,6 +8,8 @@ project ("GeometryCore")
 set(SOURCES
    "Point2D.h"
    "Point2D.cpp"
+   "GemBezierCurve.h"
+   "GemBezierCurve.cpp"
 )
 
 # 创建动态库
