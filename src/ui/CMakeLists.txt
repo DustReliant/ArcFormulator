@@ -13,23 +13,17 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-# 设定头文件，同样需要根据自己的项目修改
-set(HEADER_FILES
-    #mainwindow.h
-    # ... 其他.h文件 ...
-)
+# 获取view目录下的所有.cpp和.h文件
+file(GLOB_RECURSE VIEW_CPP_FILES "view/*.cpp")
+file(GLOB_RECURSE VIEW_HEADER_FILES "view/*.h")
 
-# 设定.ui文件
-set(UI_FILES
-    #mainwindow.ui
-    # ... 其他.ui文件 ...
-)
+# 获取ribbon目录下的所有.cpp和.h文件
+file(GLOB_RECURSE RIBBON_CPP_FILES "ribbon/*.cpp")
+file(GLOB_RECURSE RIBBON_HEADER_FILES "ribbon/*.h")
 
-# 如果有.qrc资源文件，添加资源文件
-set(QRC_FILES
-    # resources.qrc
-    # ... 其他.qrc文件 ...
-)
+# 合并所有获取到的文件列表
+set(ALL_CPP_FILES ${VIEW_CPP_FILES} ${RIBBON_CPP_FILES})
+set(ALL_HEADER_FILES ${VIEW_HEADER_FILES} ${RIBBON_HEADER_FILES})
 
 # 创建一个可执行文件
 message("${CMAKE_PROJECT_NAME}0000000000000000000000000000")
@@ -38,14 +32,17 @@ add_executable(${PROJECT_NAME} WIN32
     "MainWindow.cpp"
     "MainWindow.h"
     "MainWindow.ui"
+    ${ALL_CPP_FILES} 
+    ${ALL_HEADER_FILES}
 )
 
 # 链接Qt5库到你的项目
 # 搜索Qt的库。请确保设置了Qt的路径，或者Qt已安装在标准路径中
-find_package(Qt5 COMPONENTS Core Widgets)
+find_package(Qt5 COMPONENTS Core Gui Widgets)
 target_link_libraries(${PROJECT_NAME}
         PRIVATE
         Qt::Core
+        Qt::Gui
         Qt::Widgets
 )
 
