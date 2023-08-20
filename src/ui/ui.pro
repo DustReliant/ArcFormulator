@@ -29,6 +29,7 @@ HEADERS += \
 #    LIBS += -lSARibbonBar
 #}
 
+# 链接SARibbonBar动态库文件
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../3dparty/SARibbon/lib/ -lSARibbonBar
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../3dparty/SARibbon/lib/ -lSARibbonBard
 

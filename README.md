@@ -91,7 +91,7 @@
 - CMake 3.10 或更高版本
 
 ### 构建步骤
-
++ CMake构建
 ```bash
     git clone https://github.com/1619513467/ArcFormulator.git
     cd ArcFormulator
@@ -100,8 +100,11 @@
     cmake ..
     make
 ```
++ QMake构建  
+     打开主目录下的`ArcFormulator.pro`文件打开即可。里面暂未涉及到Qt版本问题。
 
-## 开源许可
-本项目根据特定许可证进行许可 - 详情请查阅[LICENSE](LICENSE) 文件。
+
+## 开源许可 
+    本项目根据特定许可证进行许可 - 详情请查阅[LICENSE](LICENSE) 文件。
 
 ## 待补充...
