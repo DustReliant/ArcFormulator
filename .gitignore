@@ -1,4 +1,6 @@
 out/*
 .vs
 .git
+libs/*
 CMakePresets.json
+*.user
