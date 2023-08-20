@@ -1,8 +1,9 @@
 ﻿
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
+//#include "ui_mainwindow.h"
 #include <QDebug>
 
+#include <QStatusBar>
 #include "SARibbonBar.h"
 #include "SARibbonCategory.h"
 

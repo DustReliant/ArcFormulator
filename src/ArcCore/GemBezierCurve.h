@@ -36,7 +36,7 @@ public:
 
 private:
     // 主要算法，计算曲线各个点坐标
-    void CalCurvePoint(float t, Point2D& stPt);
+    void CalCurvePoint(double t, Point2D& stPt);
 
 private:
     // 顶点和控制点数组

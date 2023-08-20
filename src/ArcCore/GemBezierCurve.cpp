@@ -20,18 +20,19 @@ bool GemBezierCurve::CreateCurve()
     assert(m_vecCtrlPt.size() == 3);
 
     // t的增量， 可以通过setp大小确定需要保存的曲线上点的个数
-    float step = 0.01;
-    for (float t = 0.0; t <= 1.0; t += step)
-        {
-            Point2D stPt;
-            CalCurvePoint(t, stPt);
-            m_vecCurvePt.push_back(stPt);
-        }
+    double step = 0.01;
+    for (double t = 0.00; t <= 1.00; t += step)
+    {
+        Point2D stPt;
+        CalCurvePoint(t, stPt);
+        m_vecCurvePt.push_back(stPt);
+    }
     return false;
 }
 
-void GemBezierCurve::CalCurvePoint(float t, Point2D& stPt)
+void GemBezierCurve::CalCurvePoint(double t, Point2D& stPt)
 {
+
     // 确保是二次曲线，2个顶点一个控制点
     assert(m_vecCtrlPt.size() == 3);
 
