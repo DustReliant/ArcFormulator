@@ -33,4 +33,18 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/src/ui)
 # 添加可执行文件
 #add_executable(${CMAKE_PROJECT_NAME} src/main.cpp)
 
+# 指定DLL的源目录和目标目录
+set(SARIBBON_DLL_DIR "${CMAKE_SOURCE_DIR}/3dparty")
+set(TARGET_DEBUG_DIR "${CMAKE_SOURCE_DIR}/out/build/x64-debug/src/ui")
+set(TARGET_RELEASE_DIR "${CMAKE_SOURCE_DIR}/out/build/x64-release/src/ui")
+
+# 使用file命令搜索所有DLL文件
+file(GLOB_RECURSE ALL_DLLS "${SARIBBON_DLL_DIR}/*.dll")
+message(STATUS "0000000000000000000000000Found DLLs: ${ALL_DLLS}")
+
+# 使用循环来复制每个DLL文件
+foreach(DLL_PATH ${ALL_DLLS})
+  file(COPY ${DLL_PATH} DESTINATION ${TARGET_DEBUG_DIR})
+  file(COPY ${DLL_PATH} DESTINATION ${TARGET_RELEASE_DIR})
+endforeach()
 

@@ -16,7 +16,12 @@ class QArcRibbonRegisterDialog : public QDialog
 
 public:
     explicit QArcRibbonRegisterDialog(QWidget *parent = nullptr);
+    
     ~QArcRibbonRegisterDialog();
+
+private slots:
+
+    void onAddIcon();
 
 private:
     Ui::QArcRibbonRegister *ui;
