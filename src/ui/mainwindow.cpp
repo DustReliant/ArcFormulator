@@ -90,8 +90,8 @@ void MainWindow::onMousePosition(QPointF pos)
     QString str;
     if (pos.isNull())
     {
-        str = QString("当前坐标：(0,0)");
+        str = QString::fromLocal8Bit("当前坐标：(0,0)");
     }
-    str = QString("当前坐标： ") + "(" + QString::number(pos.x()) + "," + QString::number(pos.y()) + ")";
+    str = QString::fromLocal8Bit("当前坐标： ") + "(" + QString::number(pos.x()) + "," + QString::number(pos.y()) + ")";
     statusLabel->setText(str);
 }

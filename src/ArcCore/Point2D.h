@@ -21,6 +21,7 @@
 
 #include <cmath>
 #include <iostream>
+#include <ranges>
 
 class Point2D 
 {
