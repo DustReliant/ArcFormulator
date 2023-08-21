@@ -8,6 +8,8 @@
 #include <QGraphicsScene>
 #include <QLabel>
 
+#include "ribbon/register/QArcRibbonRegisterdialog.h"
+
 #include "SARibbonMainWindow.h"
 class SARibbonCategory;
 class SARibbonContextCategory;
@@ -31,7 +33,13 @@ public:
     ~MainWindow();
 
 public slots:
+
     void onMousePosition(QPointF pos);
+
+
+private slots:
+    //²Ëµ¥×¢²á°´Å¥
+    void onRegistrationMenu();
 
 private:
     QArcGraphicsView* m_pArcView = nullptr;

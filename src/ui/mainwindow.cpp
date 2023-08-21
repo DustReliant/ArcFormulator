@@ -43,7 +43,17 @@ MainWindow::MainWindow(QWidget *parent)
     SARibbonCategory* categoryMain = ribbon->addCategoryPage(QString::fromLocal8Bit("主页"));
     categoryMain->setObjectName(("categoryMain"));
     //createCategoryMain(categoryMain);
-   
+    //使用addPannel函数来创建SARibbonPannel，效果和new SARibbonPannel再addPannel一样
+    SARibbonPannel *pannel1 = categoryMain->addPannel(QString::fromLocal8Bit("菜单"));
+    QAction *actSave = new QAction(this);
+    actSave->setText(QString::fromLocal8Bit("注册"));
+    actSave->setIcon(QIcon(":/icon/icon/save.svg"));
+    actSave->setObjectName("actSave");
+    actSave->setShortcut(QKeySequence(QLatin1String("Ctrl+S")));
+    connect(actSave, &QAction::triggered, this, &MainWindow::onRegistrationMenu);
+    pannel1->addLargeAction(actSave);
+
+
     //添加其他标签页 - 直接new SARibbonCategory添加
     SARibbonCategory* categoryOther = new SARibbonCategory();
     categoryOther->setCategoryName(QString::fromLocal8Bit("其他"));
@@ -94,4 +104,13 @@ void MainWindow::onMousePosition(QPointF pos)
     }
     str = QString::fromLocal8Bit("当前坐标： ") + "(" + QString::number(pos.x()) + "," + QString::number(pos.y()) + ")";
     statusLabel->setText(str);
+}
+
+
+void MainWindow::onRegistrationMenu()
+{
+    QArcRibbonRegisterDialog *dlg = new QArcRibbonRegisterDialog(this);
+    dlg->setWindowTitle(QString::fromLocal8Bit("注册菜单"));
+    dlg->setModal(true);// 设置为模态
+    dlg->exec();        // 显示模态对话框
 }

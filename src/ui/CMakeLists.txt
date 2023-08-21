@@ -23,10 +23,12 @@ file(GLOB_RECURSE VIEW_HEADER_FILES "view/*.h")
 # 获取ribbon目录下的所有.cpp和.h文件
 file(GLOB_RECURSE RIBBON_CPP_FILES "ribbon/*.cpp")
 file(GLOB_RECURSE RIBBON_HEADER_FILES "ribbon/*.h")
+file(GLOB_RECURSE RIBBON_UI_FILES "ribbon/*.ui")
 
 # 合并所有获取到的文件列表
 set(ALL_CPP_FILES ${VIEW_CPP_FILES} ${RIBBON_CPP_FILES})
 set(ALL_HEADER_FILES ${VIEW_HEADER_FILES} ${RIBBON_HEADER_FILES})
+set(ALL_UI_FILES ${RIBBON_UI_FILES})
 
 # 创建一个可执行文件
 message("${CMAKE_PROJECT_NAME}")
@@ -37,6 +39,7 @@ add_executable(${PROJECT_NAME} WIN32
     #"MainWindow.ui"
     ${ALL_CPP_FILES} 
     ${ALL_HEADER_FILES}
+    ${ALL_UI_FILES}
 )
 
 # 链接Qt5库到你的项目
