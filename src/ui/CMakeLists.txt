@@ -44,12 +44,13 @@ add_executable(${PROJECT_NAME} WIN32
 
 # 链接Qt5库到你的项目
 # 搜索Qt的库。请确保设置了Qt的路径，或者Qt已安装在标准路径中
-find_package(Qt5 COMPONENTS Core Gui Widgets)
+find_package(Qt5 COMPONENTS Core Gui Widgets Sql)
 target_link_libraries(${PROJECT_NAME}
         PRIVATE
         Qt::Core
         Qt::Gui
         Qt::Widgets
+        Qt::Sql
 )
 
 # 根据需要，可以设置C++标准

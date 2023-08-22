@@ -21,7 +21,7 @@
        <item>
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>&lt;p align='justify'&gt;名称：&lt;/p&gt;</string>
+          <string>名    称：</string>
          </property>
          <property name="textFormat">
           <enum>Qt::AutoText</enum>
@@ -34,7 +34,7 @@
        <item>
         <widget class="QLabel" name="label_3">
          <property name="text">
-          <string>别名：</string>
+          <string>别    名：</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -44,7 +44,7 @@
        <item>
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>图标：</string>
+          <string>图    标：</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -54,7 +54,7 @@
        <item>
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>快捷键：</string>
+          <string>快 捷 键：</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -140,14 +140,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="mButtonOK">
        <property name="text">
         <string>注册</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="mButtonQuit">
        <property name="text">
         <string>取消</string>
        </property>

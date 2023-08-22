@@ -2,6 +2,7 @@
 #define QARCRIBBONREGISTERDIALOG_H
 
 #include <QDialog>
+#include "../QArcDataBase.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -22,6 +23,13 @@ public:
 private slots:
 
     void onAddIcon();
+
+    void onRegisterButton();
+
+    void onQuitButton();
+
+private: 
+    QArcDataBase* pDataBase = nullptr;
 
 private:
     Ui::QArcRibbonRegister *ui;
