@@ -14,6 +14,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
 link_directories(${CMAKE_SOURCE_DIR}/3dparty/SARibbon/lib)
+link_directories(${CMAKE_SOURCE_DIR}/3dparty/pugixml/lib)
 
 
 # 获取view目录下的所有.cpp和.h文件
@@ -63,10 +64,12 @@ endif()
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_link_libraries(${PROJECT_NAME} PRIVATE
         SARibbonBard
+        pugixmld
     )
 else()
     target_link_libraries(${PROJECT_NAME} PRIVATE 
         SARibbonBar
+        pugixml
     )
 endif()
 

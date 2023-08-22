@@ -115,10 +115,62 @@
         <widget class="QLineEdit" name="mLineEditHotKey"/>
        </item>
        <item>
-        <widget class="QComboBox" name="mComboBoxCategory"/>
+        <widget class="QComboBox" name="mComboBoxCategory">
+         <item>
+          <property name="text">
+           <string>主页</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>绘图</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>设计</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>布局</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>测试</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+        </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="mComboBoxPannel"/>
+        <widget class="QComboBox" name="mComboBoxPannel">
+         <item>
+          <property name="text">
+           <string>剪切板</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>字体</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>段落</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>样式</string>
+          </property>
+         </item>
+        </widget>
        </item>
       </layout>
      </item>

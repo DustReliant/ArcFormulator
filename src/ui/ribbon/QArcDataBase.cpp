@@ -56,6 +56,8 @@ bool QArcDataBase::insertData(const Data &data, QString& strError)
         strError = QString("Failed to insert value: %1").arg(query.lastError().text());
         return false;
     }
+    db.close();
+    saveMenuXML();
     return true;
 }
 
@@ -67,6 +69,37 @@ void QArcDataBase::queryTable()
 void QArcDataBase::updateData()
 {
 
+}
+
+void QArcDataBase::loadMenuXML()
+{
+
+}
+
+void QArcDataBase::saveMenuXML()
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("Data.db");
+    if (!db.open())
+    {
+        qDebug() << "ERROR:" << db.lastError().text();
+        return;
+    }
+
+    QSqlQuery query;
+    query.exec("SELECT * FROM MueuConfig ORDER BY Category, Pannel");
+
+    pugi::xml_document doc;
+    // Ìí¼ÓXMLÍ·²¿
+    pugi::xml_node decl = doc.prepend_child(pugi::node_declaration);
+    decl.append_attribute("version") = "1.0";
+    decl.append_attribute("encoding") = "UTF-8";
+
+    pugi::xml_node root = doc.append_child("root");
+
+    buildXMLFromQuery(root, query);
+
+    doc.save_file("output.xml");
 }
 
 //void QArcDataBase::query()
@@ -99,4 +132,38 @@ bool QArcDataBase::createTable(QSqlQuery &query)
         "Pannel VARCHAR NOT NULL);";
 
     return query.exec(createTableSQL);
+}
+
+void QArcDataBase::buildXMLFromQuery(pugi::xml_node &parent, QSqlQuery &query)
+{
+    pugi::xml_node currentCategoryNode;
+    pugi::xml_node currentPannelNode;
+    QString lastCategory;
+    QString lastPannel;
+
+    while (query.next())
+    {
+        QString category = query.value("Category").toString();
+        QString pannel = query.value("Pannel").toString();
+
+        if (category != lastCategory)
+        {
+            currentCategoryNode = parent.append_child("Category");
+            currentCategoryNode.append_attribute("name") = category.toStdString().c_str();
+            lastCategory = category;
+        }
+
+        if (pannel != lastPannel || category != lastCategory)
+        {
+            currentPannelNode = currentCategoryNode.append_child("Pannel");
+            currentPannelNode.append_attribute("name") = pannel.toStdString().c_str();
+            lastPannel = pannel;
+        }
+
+        pugi::xml_node node = currentPannelNode.append_child("Node");
+        node.append_attribute("Name") = query.value("Name").toString().toStdString().c_str();
+        node.append_attribute("AlsaName") = query.value("AlsaName").toString().toStdString().c_str();
+        node.append_attribute("IconPath") = query.value("IconPath").toString().toStdString().c_str();
+        node.append_attribute("HotKey") = query.value("HotKey").toString().toStdString().c_str();
+    }
 }

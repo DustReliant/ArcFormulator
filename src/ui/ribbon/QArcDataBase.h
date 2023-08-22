@@ -16,6 +16,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
+#include "pugixml.hpp"
 
 struct Data
 {
@@ -46,12 +47,17 @@ public:
 	void updateData();
 
 	//void query();
+    void loadMenuXML();
+
+	void saveMenuXML();
 
 private:
 	// 数据库初始化
     bool initDataBase(QSqlDatabase &db);
 
 	bool createTable(QSqlQuery &query);
+
+	void buildXMLFromQuery(pugi::xml_node &parent, QSqlQuery &query);
 
 private:
     QSqlDatabase db;
