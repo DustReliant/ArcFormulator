@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<Category name="主页">
+		<Pannel name="剪切板">
+			<Node Name="直线" AlsaName="曲线" IconPath="D:/桌面/123.png" HotKey="cc" />
+			<Node Name="直线1" AlsaName="曲线5" IconPath="D:/桌面/123.png" HotKey="cc" />
+			<Node Name="测试1" AlsaName="1" IconPath="D:/桌面/123.png" HotKey="rr" />
+			<Node Name="测试2" AlsaName="1" IconPath="D:/桌面/123.png" HotKey="rr" />
+			<Node Name="测试3" AlsaName="1" IconPath="D:/桌面/123.png" HotKey="rr" />
+		</Pannel>
+		<Pannel name="字体">
+			<Node Name="直线" AlsaName="曲线" IconPath="D:/桌面/123.png" HotKey="cc" />
+			<Node Name="直线" AlsaName="曲线2" IconPath="D:/桌面/123.png" HotKey="cc" />
+			<Node Name="直线1" AlsaName="曲线2" IconPath="D:/桌面/123.png" HotKey="cc" />
+			<Node Name="测试3" AlsaName="1" IconPath="D:/桌面/123.png" HotKey="rr" />
+			<Node Name="测试2" AlsaName="1" IconPath="D:/桌面/123.png" HotKey="rr" />
+			<Node Name="测试1" AlsaName="1" IconPath="D:/桌面/123.png" HotKey="rr" />
+		</Pannel>
+		<Pannel name="段落">
+			<Node Name="测试1" AlsaName="6" IconPath="D:/桌面/123.png" HotKey="rr" />
+		</Pannel>
+	</Category>
+	<Category name="布局">
+		<Pannel name="剪切板">
+			<Node Name="直线1" AlsaName="曲线2" IconPath="D:/桌面/123.png" HotKey="cc" />
+		</Pannel>
+		<Pannel name="字体">
+			<Node Name="直线1" AlsaName="曲线2" IconPath="D:/桌面/123.png" HotKey="cc" />
+		</Pannel>
+		<Pannel name="样式">
+			<Node Name="直线1" AlsaName="曲线2" IconPath="D:/桌面/123.png" HotKey="cc" />
+		</Pannel>
+		<Pannel name="段落">
+			<Node Name="测试2" AlsaName="6" IconPath="D:/桌面/123.png" HotKey="rr" />
+		</Pannel>
+	</Category>
+	<Category name="绘图">
+		<Pannel name="剪切板">
+			<Node Name="直线1" AlsaName="曲线5" IconPath="D:/桌面/123.png" HotKey="cc" />
+			<Node Name="直线1" AlsaName="曲线2" IconPath="D:/桌面/123.png" HotKey="cc" />
+		</Pannel>
+		<Pannel name="样式">
+			<Node Name="直线1" AlsaName="曲线2" IconPath="D:/桌面/123.png" HotKey="cc" />
+		</Pannel>
+		<Pannel name="段落">
+			<Node Name="直线1" AlsaName="曲线2" IconPath="D:/桌面/123.png" HotKey="cc" />
+			<Node Name="测试1" AlsaName="6" IconPath="D:/桌面/123.png" HotKey="rr" />
+			<Node Name="测试2" AlsaName="6" IconPath="D:/桌面/123.png" HotKey="rr" />
+		</Pannel>
+	</Category>
+</root>
