@@ -71,11 +71,6 @@ void QArcDataBase::updateData()
 
 }
 
-void QArcDataBase::loadMenuXML()
-{
-
-}
-
 void QArcDataBase::saveMenuXML()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
@@ -165,5 +160,103 @@ void QArcDataBase::buildXMLFromQuery(pugi::xml_node &parent, QSqlQuery &query)
         node.append_attribute("AlsaName") = query.value("AlsaName").toString().toStdString().c_str();
         node.append_attribute("IconPath") = query.value("IconPath").toString().toStdString().c_str();
         node.append_attribute("HotKey") = query.value("HotKey").toString().toStdString().c_str();
+    }
+}
+
+
+void QArcDataBase::loadMenuXML()
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("Data.db");
+    if (!db.open())
+    {
+        qDebug() << "ERROR:" << db.lastError().text();
+        return;
+    }
+
+    QSqlQuery query;
+    query.prepare("INSERT INTO MueuConfig (Category, Pannel, Name, AlsaName, IconPath, HotKey) "
+                  "VALUES (:Category, :Pannel, :Name, :AlsaName, :IconPath, :HotKey)");
+
+    pugi::xml_document doc;
+    pugi::xml_parse_result result = doc.load_file("output.xml");
+
+    if (!result)
+    {
+        qDebug() << "XML parsed with errors";
+        return;
+    }
+
+    pugi::xml_node root = doc.child("root");
+    for (pugi::xml_node categoryNode: root.children("Category"))
+    {
+        QString category = categoryNode.attribute("name").as_string();
+        for (pugi::xml_node pannelNode: categoryNode.children("Pannel"))
+        {
+            QString pannel = pannelNode.attribute("name").as_string();
+            for (pugi::xml_node node: pannelNode.children("Node"))
+            {
+                QString name = node.attribute("Name").as_string();
+                QString alsaName = node.attribute("AlsaName").as_string();
+                QString iconPath = node.attribute("IconPath").as_string();
+                QString hotKey = node.attribute("HotKey").as_string();
+            }
+        }
+    }
+}
+
+
+void QArcDataBase::loadMenuFromXML()
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("Data.db");
+    if (!db.open())
+    {
+        qDebug() << "ERROR:" << db.lastError().text();
+        return;
+    }
+
+    QSqlQuery query;
+
+    pugi::xml_document doc;
+    pugi::xml_parse_result result = doc.load_file("output.xml");
+
+    if (!result)
+    {
+        qDebug() << "XML parsed with errors";
+        return;
+    }
+
+    pugi::xml_node root = doc.child("root");
+    for (pugi::xml_node categoryNode: root.children("Category"))
+    {
+        QString category = categoryNode.attribute("name").as_string();
+        for (pugi::xml_node pannelNode: categoryNode.children("Pannel"))
+        {
+            QString pannel = pannelNode.attribute("name").as_string();
+            for (pugi::xml_node node: pannelNode.children("Node"))
+            {
+                QString name = node.attribute("Name").as_string();
+
+                query.prepare("SELECT * FROM MueuConfig WHERE Name = :Name AND Category = :Category AND Pannel = :Pannel");
+                query.bindValue(":Name", name);
+                query.bindValue(":Category", category);
+                query.bindValue(":Pannel", pannel);
+
+                if (query.exec())
+                {
+                    while (query.next())
+                    {
+                        QString alsaName = query.value("AlsaName").toString();
+                        QString iconPath = query.value("IconPath").toString();
+                        QString hotKey = query.value("HotKey").toString();
+                    }
+                }
+                else
+                {
+                    qDebug() << "Database query error:" << query.lastError().text();
+                }
+            }
+        }
     }
 }

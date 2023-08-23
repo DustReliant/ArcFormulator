@@ -59,6 +59,8 @@ private:
 
 	void buildXMLFromQuery(pugi::xml_node &parent, QSqlQuery &query);
 
+	void loadMenuFromXML();
+
 private:
     QSqlDatabase db;
     QSqlQuery query;
