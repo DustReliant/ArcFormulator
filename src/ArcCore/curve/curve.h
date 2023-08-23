@@ -1,0 +1,8 @@
+#include "GemBezierCurve.h"
+#include "GemCircleCurve.h"
+#include "GemCosCurve.h"
+#include "GemSinCurve.h"
+#include "GemTanCurve.h"
+#include "GemLineCurve.h"
+#include "GemHyperbolaCurve.h"
+#include "GemEllipseCurve.h"

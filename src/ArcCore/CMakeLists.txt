@@ -13,6 +13,7 @@ set(SOURCES
    "point/Point3D.h"
    "point/Point3D.cpp"
    # 曲线
+   "curve/curve.h"
    "curve/GemBezierCurve.h"
    "curve/GemBezierCurve.cpp"
    "curve/GemCircleCurve.h"
@@ -32,7 +33,7 @@ set(SOURCES
 )
 
 # 创建动态库
-ADD_LIBRARY(${PROJECT_NAME} SHARED ${SOURCES})
+ADD_LIBRARY(${PROJECT_NAME} SHARED ${SOURCES} "curve/curve.h")
 
 # 指定头文件的搜索路径
 target_include_directories(${PROJECT_NAME} PUBLIC
