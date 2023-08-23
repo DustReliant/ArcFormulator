@@ -205,7 +205,7 @@ void QArcDataBase::loadMenuXML()
     }
 }
 
-
+// 待完善 后期慢慢完善
 void QArcDataBase::loadMenuFromXML()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");

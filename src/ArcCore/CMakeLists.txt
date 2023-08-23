@@ -6,10 +6,29 @@ project ("GeometryCore")
 
 # 源文件列表
 set(SOURCES
-   "Point2D.h"
-   "Point2D.cpp"
-   "GemBezierCurve.h"
-   "GemBezierCurve.cpp"
+   #点
+   "point/point.h"
+   "point/Point2D.h"
+   "point/Point2D.cpp"
+   "point/Point3D.h"
+   "point/Point3D.cpp"
+   # 曲线
+   "curve/GemBezierCurve.h"
+   "curve/GemBezierCurve.cpp"
+   "curve/GemCircleCurve.h"
+   "curve/GemCircleCurve.cpp"
+   "curve/GemCosCurve.h"
+   "curve/GemCosCurve.cpp"
+   "curve/GemSinCurve.h"
+   "curve/GemSinCurve.cpp"
+   "curve/GemTanCurve.h"
+   "curve/GemTanCurve.cpp"
+   "curve/GemLineCurve.h"
+   "curve/GemLineCurve.cpp"
+   "curve/GemHyperbolaCurve.h"
+   "curve/GemHyperbolaCurve.cpp"
+   "curve/GemEllipseCurve.h"
+   "curve/GemEllipseCurve.cpp"
 )
 
 # 创建动态库

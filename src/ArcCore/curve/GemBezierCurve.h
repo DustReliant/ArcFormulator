@@ -21,7 +21,7 @@
 #define GEMBEZIERCURVE_H
 
 #include <vector>
-#include "Point2D.h"
+#include "point/Point2D.h"  // 后期需要修改
 
 class GemBezierCurve
 {
