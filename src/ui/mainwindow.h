@@ -11,6 +11,8 @@
 #include "ribbon/register/QArcRibbonRegisterdialog.h"
 
 #include "SARibbonMainWindow.h"
+#include "SARibbonButtonGroupWidget.h"
+#include "SARibbonQuickAccessBar.h"
 class SARibbonCategory;
 class SARibbonContextCategory;
 class SARibbonCustomizeWidget;
@@ -40,6 +42,14 @@ public slots:
 private slots:
     //²Ëµ¥×¢²á°´Å¥
     void onRegistrationMenu();
+
+
+private:
+    void initRightButtonGroup();
+
+    void initQuickAccessBar();
+
+    QAction *createAction(const QString &text, const QString &icon, const QString &objName);
 
 private:
     QArcGraphicsView* m_pArcView = nullptr;

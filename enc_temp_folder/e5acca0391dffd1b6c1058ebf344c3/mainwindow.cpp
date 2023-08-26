@@ -155,8 +155,8 @@ void MainWindow::initQuickAccessBar()
     SARibbonBar *ribbon = ribbonBar();
     SARibbonQuickAccessBar *quickAccessBar = ribbon->quickAccessBar();
     quickAccessBar->addAction(createAction("save", ":/icon/icon/save.svg", "save-quickbar"));
-    quickAccessBar->addSeparator();  // 分割线
+    quickAccessBar->addSeparator();
     quickAccessBar->addAction(createAction("undo", ":/icon/icon/undo.svg", "undo"));
     quickAccessBar->addAction(createAction("redo", ":/icon/icon/redo.svg", "redo"));
-    quickAccessBar->addSeparator();  // 分割线
+    quickAccessBar->addSeparator();
 }

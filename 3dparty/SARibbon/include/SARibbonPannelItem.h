@@ -32,7 +32,7 @@ public:
     short rowIndex;                                         ///< 记录当前item属于第几行，hide模式下为-1
     int columnIndex;                                        ///< 记录当前item属于第几列，hide模式下为-1
     QRect itemWillSetGeometry;                              ///< 在调用SARibbonPannelLayout::updateGeomArray会更新这个此处，实际设置的时候会QWidgetItem::setGeometry设置Geometry
-    QAction *action;                                        /// < 记录action，参考QToolBarLayoutItem
+    QAction *action;                                        ///< 记录action，参考QToolBarLayoutItem
     bool customWidget;                                      ///< 对于没有窗口的action，实际也会有一个SARibbonToolButton，在销毁时要delete掉
     SARibbonPannelItem::RowProportion rowProportion;        ///< 行的占比，ribbon中有large，media和small三种占比,见@ref RowProportion
 };

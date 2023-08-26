@@ -37,6 +37,7 @@ add_executable(${PROJECT_NAME} WIN32
     "main.cpp"
     "MainWindow.cpp"
     "MainWindow.h"
+    "icon.qrc"
     #"MainWindow.ui"
     ${ALL_CPP_FILES} 
     ${ALL_HEADER_FILES}
