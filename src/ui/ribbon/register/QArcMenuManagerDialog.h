@@ -41,6 +41,10 @@ public:
 	QArcMenuManagerDialog(QWidget *parent = nullptr);
 	~QArcMenuManagerDialog();
 
+
+
+
+
 private:
 	Ui::QArcMenuManagerDialog* ui;
 };
