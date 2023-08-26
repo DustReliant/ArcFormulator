@@ -29,7 +29,7 @@ class MainWindow : public SARibbonMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr, bool useRibbon = true);
     ~MainWindow();
 
 public slots:
@@ -46,6 +46,10 @@ private:
     QGraphicsScene* m_pArcSence = nullptr;   //³¡¾°
     QArcGraphicsItem* m_pArcItem = nullptr;  //»­²¼
     QLabel* statusLabel = nullptr;
+
+    bool bUseRibbon = false;
+
+    QStatusBar *pStatusBar = nullptr;
 
 private:
     //Ui::MainWindow *ui;

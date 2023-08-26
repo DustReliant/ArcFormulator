@@ -3,7 +3,7 @@
 QArcGraphicsView::QArcGraphicsView(QWidget *parent)
 	: QGraphicsView(parent)
 {
-    viewport()->update();
+    //viewport()->update();
 }
 
 QArcGraphicsView::~QArcGraphicsView()

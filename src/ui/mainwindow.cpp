@@ -9,8 +9,9 @@
 
 #include <QTextCodec>
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget *parent, bool useRibbon)
     : SARibbonMainWindow(parent)
+    , bUseRibbon(useRibbon)
     //, ui(new Ui::MainWindow)
 {
    // ui->setupUi(this);
@@ -25,19 +26,27 @@ MainWindow::MainWindow(QWidget *parent)
     m_pArcSence->addItem(m_pArcItem);
 
 
-    //connect(m_pArcView, &QArcGraphicsView::updateItemPosSignal, this, &MainWindow::onMousePosition);//状态栏显示坐标
+    connect(m_pArcView, &QArcGraphicsView::updateItemPosSignal, this, &MainWindow::onMousePosition);//状态栏显示坐标
 
     statusLabel = new QLabel(this);
     statusLabel->setAlignment(Qt::AlignRight);
     //ui->statusbar->addPermanentWidget(statusLabel);
 
     setCentralWidget(m_pArcView);
-    setStatusBar(new QStatusBar());
+    pStatusBar = new QStatusBar(this);
+    pStatusBar->addPermanentWidget(statusLabel);
+    setStatusBar(pStatusBar);
+
+    
+
+
     SARibbonBar* ribbon = ribbonBar();
     //通过setContentsMargins设置ribbon四周的间距
     ribbon->setContentsMargins(5, 0, 5, 0);
     //设置applicationButton
     ribbon->applicationButton()->setText(QString::fromLocal8Bit("文件"));
+
+    setRibbonTheme(RibbonTheme::Office2013);
 
     //添加主标签页 - 通过addCategoryPage工厂函数添加
     SARibbonCategory* categoryMain = ribbon->addCategoryPage(QString::fromLocal8Bit("主页"));
