@@ -6,7 +6,10 @@ project ("GeometryCore")
 
 # 源文件列表
 set(SOURCES
-   #点
+   # 核心
+   "kernel/GemGeomotry.h"
+
+   # 点
    "point/point.h"
    "point/Point2D.h"
    "point/Point2D.cpp"
