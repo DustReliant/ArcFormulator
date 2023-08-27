@@ -48,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent, bool useRibbon)
     ribbon->applicationButton()->setText(QString::fromLocal8Bit("文件"));
     ribbon->setRibbonStyle(SARibbonBar::OfficeStyle);
 
-
+    ribbonBar()->setMinimumMode(false);
     
 
     //添加主标签页 - 通过addCategoryPage工厂函数添加
@@ -89,6 +89,7 @@ MainWindow::MainWindow(QWidget *parent, bool useRibbon)
     setMinimumWidth(900);
     setMinimumHeight(600);
     //showMaximized();
+	setWindowIcon(QIcon(":/RibbonIcon/GA133.svg"));
 }
 
 MainWindow::~MainWindow()
@@ -135,7 +136,7 @@ void MainWindow::initRightButtonGroup()
 
     QAction *actSave = new QAction(this);
     actSave->setText(QString::fromLocal8Bit("帮助"));
-    actSave->setIcon(QIcon(":/help.svg"));
+    actSave->setIcon(QIcon(":/RibbonIcon/help.svg"));
 
     //connect(actionHelp, &QAction::triggered, this, &MainWindow::onActionHelpTriggered);
     rightBar->addAction(actSave);
@@ -156,7 +157,7 @@ void MainWindow::initQuickAccessBar()
     SARibbonQuickAccessBar *quickAccessBar = ribbon->quickAccessBar();
     quickAccessBar->addAction(createAction("save", ":/icon/icon/save.svg", "save-quickbar"));
     quickAccessBar->addSeparator();  // 分割线
-    quickAccessBar->addAction(createAction("undo", ":/icon/icon/undo.svg", "undo"));
-    quickAccessBar->addAction(createAction("redo", ":/icon/icon/redo.svg", "redo"));
+    quickAccessBar->addAction(createAction("undo", ":/RibbonIcon/undo.svg", "undo"));
+    quickAccessBar->addAction(createAction("redo", ":/RibbonIcon/redo.svg", "redo"));
     quickAccessBar->addSeparator();  // 分割线
 }

@@ -14,10 +14,6 @@ public:
 
     void readDatabaseToMeun();
 
-
-
-
-
 };
 #endif// ! QARCREGISTERMENU_H
 

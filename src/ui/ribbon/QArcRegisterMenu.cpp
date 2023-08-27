@@ -10,6 +10,7 @@ QArcRegisterMenu::~QArcRegisterMenu()
 
 void QArcRegisterMenu::initUI()
 {
+
 }
 
 void QArcRegisterMenu::addMenu()

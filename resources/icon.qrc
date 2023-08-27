@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>RibbonIcon/help.svg</file>
+        <file>RibbonIcon/GA.svg</file>
+        <file>RibbonIcon/redo.svg</file>
+        <file>RibbonIcon/undo.svg</file>
+    </qresource>
+</RCC>

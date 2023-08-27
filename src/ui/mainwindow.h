@@ -38,7 +38,6 @@ public slots:
 
     void onMousePosition(QPointF pos);
 
-
 private slots:
     //²Ëµ¥×¢²á°´Å¥
     void onRegistrationMenu();
