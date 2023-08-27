@@ -9,12 +9,19 @@ set(SOURCES
    # 核心
    "kernel/GemGeomotry.h"
 
+   # 日志
+   "log/log.h"
+
+   # 基础公共库
+   "utility/object.h"
+
    # 点
    "point/point.h"
    "point/Point2D.h"
    "point/Point2D.cpp"
    "point/Point3D.h"
    "point/Point3D.cpp"
+
    # 曲线
    "curve/curve.h"
    "curve/GemBezierCurve.h"
@@ -36,7 +43,7 @@ set(SOURCES
 )
 
 # 创建动态库
-ADD_LIBRARY(${PROJECT_NAME} SHARED ${SOURCES} "curve/curve.h")
+ADD_LIBRARY(${PROJECT_NAME} SHARED ${SOURCES})
 
 # 指定头文件的搜索路径
 target_include_directories(${PROJECT_NAME} PUBLIC
