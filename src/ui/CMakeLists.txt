@@ -37,19 +37,24 @@ set(ALL_QRC_FILES
     ${CMAKE_SOURCE_DIR}/resources/theme.qrc
 )
 
-# 搜索Qt的库
-find_package(Qt5 COMPONENTS Core Gui Widgets Sql)
+
 # 处理QRC的资源文件
-qt5_add_resources(QRC_SOURCES ${ALL_QRC_FILES})
+find_package(Qt5 COMPONENTS Core Gui Widgets Sql)
+#qt5_add_resources(QRC_SOURCES ${ALL_QRC_FILES})
 
 # 创建一个可执行文件
 message("${CMAKE_PROJECT_NAME}")
 add_executable(${PROJECT_NAME} WIN32
     "main.cpp"
+
+    #"QArcSplashScreen.h"
+    #"QArcSplashScreen.cpp"
+
     "MainWindow.cpp"
     "MainWindow.h"
     "QArcMainWindow.h"
     "QArcMainWindow.cpp"
+
     #"MainWindow.ui"
     ${ALL_CPP_FILES} 
     ${ALL_HEADER_FILES}
@@ -58,6 +63,8 @@ add_executable(${PROJECT_NAME} WIN32
 )
 
 # 链接Qt5库到你的项目
+# 搜索Qt的库
+
 target_link_libraries(${PROJECT_NAME}
         PRIVATE
         Qt::Core

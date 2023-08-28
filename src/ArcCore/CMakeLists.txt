@@ -10,10 +10,10 @@ set(SOURCES
    "kernel/GemGeomotry.h"
 
    # 日志
-   "log/log.h"
+   "kernel/logSystem/log.h"
 
    # 基础公共库
-   "utility/object.h"
+   "kernel/utility/object.h"
 
    # 点
    "point/point.h"
