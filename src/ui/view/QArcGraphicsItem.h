@@ -3,6 +3,8 @@
 
 #include <QGraphicsItem>
 #include <QPainter>
+#include <QtGlobal>
+
 
 class QArcGraphicsItem : public QGraphicsItem 
 {
@@ -35,6 +37,10 @@ protected:
     // @return 返回一个QRectF对象，代表了图形项的边界矩形。
     // 边界矩形的坐标是相对于图形项自身的坐标系统（而非场景或视图的坐标系统）。
 	virtual QRectF boundingRect() const override;
+
+
+private:
+	double calculateAngle(const QPointF& center, const QPointF& point);
 
 
 private:

@@ -2,7 +2,7 @@
 cmake_minimum_required (VERSION 3.8)
 
 # 项目名称
-project ("ArcFormUI")
+project ("ArcFormUI" VERSION 0.1 LANGUAGES CXX)
 
 # 设定C++标准
 set(CMAKE_CXX_STANDARD 11)
@@ -40,21 +40,18 @@ set(ALL_QRC_FILES
 
 # 处理QRC的资源文件
 find_package(Qt5 COMPONENTS Core Gui Widgets Sql)
-#qt5_add_resources(QRC_SOURCES ${ALL_QRC_FILES})
+qt5_add_resources(QRC_SOURCES ${ALL_QRC_FILES})
 
 # 创建一个可执行文件
 message("${CMAKE_PROJECT_NAME}")
 add_executable(${PROJECT_NAME} WIN32
     "main.cpp"
-
     #"QArcSplashScreen.h"
     #"QArcSplashScreen.cpp"
-
     "MainWindow.cpp"
     "MainWindow.h"
     "QArcMainWindow.h"
     "QArcMainWindow.cpp"
-
     #"MainWindow.ui"
     ${ALL_CPP_FILES} 
     ${ALL_HEADER_FILES}
@@ -64,14 +61,27 @@ add_executable(${PROJECT_NAME} WIN32
 
 # 链接Qt5库到你的项目
 # 搜索Qt的库
-
-target_link_libraries(${PROJECT_NAME}
-        PRIVATE
-        Qt::Core
-        Qt::Gui
-        Qt::Widgets
-        Qt::Sql
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt5::Core
+    Qt5::Gui
+    Qt5::Widgets
+    Qt5::Sql
 )
+
+########################################################################################
+# 不知道为啥CMake 链接Qt环境出了问题 这里先这样做临时处理。 后期待找到原因 还是以上面注释的为准。    ###
+#set(QTMYPATH "D:/Qt/5.15.2/msvc2019_64/lib/")                                        ###
+#target_link_libraries(${PROJECT_NAME}                                                ###
+#    PRIVATE                                                                          ###
+#    ${QTMYPATH}Qt5Core.lib                                                           ###
+#    ${QTMYPATH}Qt5Gui.lib                                                            ###
+#    ${QTMYPATH}Qt5Widgets.lib                                                        ###
+#    ${QTMYPATH}Qt5Sql.lib                                                            ###
+#)                                                                                    ###
+########################################################################################
+
+
+
 
 # 根据需要，可以设置C++标准
 if (CMAKE_VERSION VERSION_GREATER 3.12)

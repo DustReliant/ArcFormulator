@@ -11,6 +11,20 @@ set(SOURCES
 
    # 日志
    "kernel/logSystem/log.h"
+   "kernel/logSystem/LogManager.h"
+   "kernel/logSystem/LogManager.cpp"
+   "kernel/logSystem/LogMessage.h"
+   "kernel/logSystem/LogMessage.cpp"
+   "kernel/logSystem/LogOutput.h"
+   "kernel/logSystem/LogOutput.cpp"
+   "kernel/logSystem/LogFormatter.h"
+   "kernel/logSystem/LogFormatter.cpp"
+   "kernel/logSystem/FileLogOutput.h"
+   "kernel/logSystem/FileLogOutput.cpp"
+   "kernel/logSystem/ConsoleLogOutput.h"
+   "kernel/logSystem/ConsoleLogOutput.cpp"
+   "kernel/logSystem/AsyncLogger.h"
+   "kernel/logSystem/AsyncLogger.cpp"
 
    # 基础公共库
    "kernel/utility/object.h"
@@ -43,7 +57,7 @@ set(SOURCES
 )
 
 # 创建动态库
-ADD_LIBRARY(${PROJECT_NAME} SHARED ${SOURCES})
+ADD_LIBRARY(${PROJECT_NAME} SHARED ${SOURCES} )
 
 # 指定头文件的搜索路径
 target_include_directories(${PROJECT_NAME} PUBLIC
