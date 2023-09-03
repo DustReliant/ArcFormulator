@@ -6,7 +6,7 @@
 
 
 // 日志级别枚举
-enum LOGLEVEL 
+enum emLogLevel 
 {
 	LOG_LEVEL_ALL = 0,
 	LOG_LEVEL_TRACE,
@@ -17,7 +17,7 @@ enum LOGLEVEL
 };
 
 // 日志输出位置
-enum LOGTARGET 
+enum emLogTarget
 {
 	LOG_TARGET_NONE	   = 0x00,
 	LOG_TARGET_CONSOLE = 0x01,
@@ -28,7 +28,7 @@ enum LOGTARGET
 class Log
 {
 public:
-	virtual int LogInit() = 0;
+	virtual bool LogInit() = 0;
 };
 
 

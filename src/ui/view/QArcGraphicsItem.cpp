@@ -46,14 +46,14 @@ void QArcGraphicsItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *
     // 绘制路径
     painter->drawPath(path);
 
-    QPointF point(10, 10);
+    QPointF point(100, 100);
     painter->drawText(point, "Hello world!");
 
 
     // 假设有三个点的坐标，你需要将它们替换为你的实际坐标
-	QPointF		   pointA(10, 100);
-	QPointF		   pointB(20, 200);
-	QPointF		   pointC(30, 100);
+	QPointF		   pointA(100, 100);
+	QPointF		   pointB(200, 200);
+	QPointF		   pointC(300, 100);
 
 	// 计算三角形的中心点，这里假设三个点是顶点
 	QPointF		   center((pointA.x() + pointB.x() + pointC.x()) / 3,

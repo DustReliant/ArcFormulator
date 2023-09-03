@@ -25,6 +25,8 @@ MainWindow::MainWindow(QWidget *parent, bool useRibbon)
     m_pArcItem = new QArcGraphicsItem();//画布
     m_pArcSence->addItem(m_pArcItem);
 
+    m_pArcView->setAlignment(Qt::AlignLeft | Qt::AlignTop); // 对齐QGraphicsView和QGraphicsScene坐标系
+
 
     connect(m_pArcView, &QArcGraphicsView::updateItemPosSignal, this, &MainWindow::onMousePosition);//状态栏显示坐标
 

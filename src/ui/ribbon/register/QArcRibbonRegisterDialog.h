@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "../QArcDataBase.h"
+#include "QArcTabWidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
