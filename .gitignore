@@ -5,3 +5,4 @@ out/*
 libs/*
 CMakePresets.json
 ArcFormulator.pro.user
+3dparty0/*

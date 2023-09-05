@@ -1,7 +1,7 @@
 #include "QArcMainWindow.h"
 
-QArcMainWindow::QArcMainWindow(QObject *parent)
-	: QObject(parent)
+QArcMainWindow::QArcMainWindow(QWidget *parent)
+    : QWidget(parent)
 {
 }
 

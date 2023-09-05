@@ -15,11 +15,17 @@ set(CMAKE_AUTORCC ON)
 
 link_directories(${CMAKE_SOURCE_DIR}/3dparty/SARibbon/lib)
 link_directories(${CMAKE_SOURCE_DIR}/3dparty/pugixml/lib)
+link_directories(${CMAKE_SOURCE_DIR}/3dparty/qdf_framework/lib)
 
 
 # 获取view目录下的所有.cpp和.h文件
 file(GLOB_RECURSE VIEW_CPP_FILES "view/*.cpp")
 file(GLOB_RECURSE VIEW_HEADER_FILES "view/*.h")
+
+# 获取view目录下的所有.cpp和.h文件
+file(GLOB_RECURSE SHARED_CPP_FILES "shared/*.cpp")
+file(GLOB_RECURSE SHARED_HEADER_FILES "shared/*.h")
+
 
 # 获取ribbon目录下的所有.cpp和.h文件
 file(GLOB_RECURSE RIBBON_CPP_FILES "ribbon/*.cpp")
@@ -27,14 +33,15 @@ file(GLOB_RECURSE RIBBON_HEADER_FILES "ribbon/*.h")
 file(GLOB_RECURSE RIBBON_UI_FILES "ribbon/*.ui")
 
 # 合并所有获取到的文件列表
-set(ALL_CPP_FILES ${VIEW_CPP_FILES} ${RIBBON_CPP_FILES})
-set(ALL_HEADER_FILES ${VIEW_HEADER_FILES} ${RIBBON_HEADER_FILES})
+set(ALL_CPP_FILES ${VIEW_CPP_FILES} ${RIBBON_CPP_FILES} ${SHARED_CPP_FILES})
+set(ALL_HEADER_FILES ${VIEW_HEADER_FILES} ${RIBBON_HEADER_FILES} ${SHARED_HEADER_FILES})
 set(ALL_UI_FILES ${RIBBON_UI_FILES})
 
 # 指定多个QRC文件的位置
 set(ALL_QRC_FILES
     ${CMAKE_SOURCE_DIR}/resources/icon.qrc
     ${CMAKE_SOURCE_DIR}/resources/theme.qrc
+    ${CMAKE_SOURCE_DIR}/src/ui/shared/ribbonimages.qrc
 )
 
 
@@ -46,8 +53,8 @@ qt5_add_resources(QRC_SOURCES ${ALL_QRC_FILES})
 message("${CMAKE_PROJECT_NAME}")
 add_executable(${PROJECT_NAME} WIN32
     "main.cpp"
-    #"QArcSplashScreen.h"
-    #"QArcSplashScreen.cpp"
+    "QArcSplashScreen.h"
+    "QArcSplashScreen.cpp"
     "MainWindow.cpp"
     "MainWindow.h"
     "QArcMainWindow.h"
@@ -68,21 +75,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt5::Sql
 )
 
-########################################################################################
-# 不知道为啥CMake 链接Qt环境出了问题 这里先这样做临时处理。 后期待找到原因 还是以上面注释的为准。    ###
-#set(QTMYPATH "D:/Qt/5.15.2/msvc2019_64/lib/")                                        ###
-#target_link_libraries(${PROJECT_NAME}                                                ###
-#    PRIVATE                                                                          ###
-#    ${QTMYPATH}Qt5Core.lib                                                           ###
-#    ${QTMYPATH}Qt5Gui.lib                                                            ###
-#    ${QTMYPATH}Qt5Widgets.lib                                                        ###
-#    ${QTMYPATH}Qt5Sql.lib                                                            ###
-#)                                                                                    ###
-########################################################################################
-
-
-
-
 # 根据需要，可以设置C++标准
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
@@ -92,11 +84,13 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_link_libraries(${PROJECT_NAME} PRIVATE
         SARibbonBard
         pugixmld
+        qdf_frameworkrd
     )
 else()
     target_link_libraries(${PROJECT_NAME} PRIVATE 
         SARibbonBar
         pugixml
+        qdf_frameworkd
     )
 endif()
 
