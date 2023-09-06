@@ -1,6 +1,6 @@
 //#include "QArcMainWindow.h"
 #include "mainwindow.h"
-#include <ribbon/qdfribbonstyle.h>
+//#include <ribbon/qdfribbonstyle.h>
 #include <QApplication>
 int main(int argc, char *argv[]) 
 {

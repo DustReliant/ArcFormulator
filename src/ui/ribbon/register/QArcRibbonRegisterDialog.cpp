@@ -66,24 +66,7 @@ void QArcRibbonRegisterDialog::onRegisterButton()
 void QArcRibbonRegisterDialog::onQuitButton()
 {
     QArcTabWidget *tabWidget = new QArcTabWidget();
-
-    // 添加一些示例页面
-    QWidget *page1 = new QWidget();
-    QWidget *page2 = new QWidget();
-    QWidget *page3 = new QWidget();
-
-     // 设置选项卡位置为 West (左侧)
-    tabWidget->setTabPosition(QArcTabWidget::West);
-
-    tabWidget->addTab(page1, "Page 1");
-    tabWidget->addTab(page2, "Page 2");
-    tabWidget->addTab(page3, "Page 3");
-
-    // 连接复选框状态变化信号
-    QObject::connect(tabWidget, &QArcTabWidget::checkBoxStateChanged, [](int index, bool checked) {
-        qDebug() << "Tab" << index << "checked:" << checked;
-    });
-
+    tabWidget->setWindowModality(Qt::ApplicationModal); // 设置模态
     tabWidget->show();
 }
 

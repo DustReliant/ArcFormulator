@@ -23,11 +23,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
 include_directories(${CMAKE_SOURCE_DIR}/3dparty/SARibbon/include)
 include_directories(${CMAKE_SOURCE_DIR}/3dparty/pugixml/include)
-include_directories(${CMAKE_SOURCE_DIR}/3dparty/qdf_framework/include)
+#include_directories(${CMAKE_SOURCE_DIR}/3dparty/qdf_framework/include)
 
 # 添加子目录
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/ArcCore)
-add_subdirectory(${CMAKE_SOURCE_DIR}/src/desktopframework)
+#add_subdirectory(${CMAKE_SOURCE_DIR}/src/desktopframework)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/ui)
 
 
