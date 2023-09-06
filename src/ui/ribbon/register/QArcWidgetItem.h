@@ -15,7 +15,7 @@ public:
     int getIndex();
     QCheckBox* checkBox();
     QString checkBoxText();
-
+    void setHideBox(bool hide);
 
 signals:
     void listItemClicked(int);
@@ -25,6 +25,7 @@ protected:
 
 private:
     int index;
+    bool m_bHideFlag;
     QCheckBox *pCheckBox = nullptr;
 };
 #endif//QARCWIDGETITEM_H

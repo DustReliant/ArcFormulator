@@ -24,6 +24,7 @@ QArcTabWidget::QArcTabWidget(QWidget *parent)
         item = new QListWidgetItem(m_pListWidget);
         item->setSizeHint(QSize(0, 20));
         QArcWidgetItem *pItem = new QArcWidgetItem(index, i, this);
+        pItem->setHideBox(true);
         m_pListWidget->setItemWidget(item, pItem);
         connect(pItem, &QArcWidgetItem::listItemClicked, this, &QArcTabWidget::onListItemChecked);
         ++index;
