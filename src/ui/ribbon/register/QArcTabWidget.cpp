@@ -30,6 +30,9 @@ QArcTabWidget::QArcTabWidget(QWidget *parent)
         ++index;
     }
 
+    m_pListWidget->setCurrentRow(0);//默认选中第一行
+    onListItemChecked(0);
+
     //m_pListView->setModel(model);
 
     pHBoxLayout->addWidget(m_pListWidget);
@@ -43,6 +46,7 @@ QArcTabWidget::~QArcTabWidget()
 
 void QArcTabWidget::onListItemChecked(int index)
 {
+    m_pListWidget->setCurrentRow(index);
     QListWidgetItem *item = m_pListWidget->item(index);//获取用户当前选中项
     QArcWidgetItem *pItem = static_cast<QArcWidgetItem *>(m_pListWidget->itemWidget(item));
     pItem->checkBox()->setChecked(!pItem->checkBox()->isChecked());
